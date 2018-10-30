@@ -22,6 +22,11 @@ public class LiveChat : NSObject {
             updateConfiguration()
         }
     }
+    @objc public static var statusBarStyle: UIStatusBarStyle = .default {
+        didSet {
+            Manager.sharedInstance.statusBarStyle = statusBarStyle
+        }
+    }
     @objc public static var groupId : String? {
         didSet {
             updateConfiguration()
@@ -90,6 +95,11 @@ private class Manager : NSObject, LiveChatOverlayViewControllerDelegate, WebView
     var customVariables : Dictionary<String, String>? {
         didSet {
             overlayViewController.customVariables = customVariables
+        }
+    }
+    var statusBarStyle: UIStatusBarStyle = .default {
+        didSet {
+            overlayViewController.statusBarStyle = statusBarStyle
         }
     }
     weak var delegate : LiveChatDelegate?
