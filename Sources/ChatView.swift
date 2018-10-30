@@ -82,7 +82,7 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
             webView.scrollView.minimumZoomScale = 1.0
             webView.scrollView.maximumZoomScale = 1.0
             webView.isOpaque = false
-            webView.backgroundColor = UIColor.white
+            webView.backgroundColor = UIColor.clear
             webView.frame = frame
             webView.alpha = 0
         }
