@@ -21,6 +21,7 @@ enum ChatState {
 
 class LiveChatOverlayViewController : UIViewController, ChatViewDelegate {
     let chatView = ChatView()
+    var statusBarStyle: UIStatusBarStyle = .default
     private var preloadingWindow = UIWindow()
     var webViewBridge : WebViewBridge? {
         didSet {
@@ -61,6 +62,9 @@ class LiveChatOverlayViewController : UIViewController, ChatViewDelegate {
         preloadingWindow.addSubview(chatView)
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return statusBarStyle
+    }
     // MARK: Public methods
     
     func presentChat(animated: Bool, completion: ((Bool) -> Void)? = nil) {
